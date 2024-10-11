@@ -29,10 +29,12 @@
         <!-- Objek 3D yang akan muncul di lokasi yang diinputkan -->
         <a-box
             id="ar-box"
-            gps-entity-place="latitude: -6.197411; longitude:  106.797471;"
+            geometry='primitive: box'
+            gps-new-entity-place="latitude: 0; longitude:  0;"
             scale="15 15 15"
             material="color: red;"
-            visible="false">
+            visible="false"
+            look-at = "[gps-new-camera]">
         </a-box>
     </a-scene>
 
@@ -55,7 +57,7 @@
 
         if (!isNaN(lat) && !isNaN(lon)) {
           // Set latitude and longitude attributes
-          entity.setAttribute('gps-entity-place', `latitude: ${lat}; longitude: ${lon};`);
+          entity.setAttribute('gps-new-entity-place', `latitude: ${lat}; longitude: ${lon};`);
           // Make the entity visible
           entity.setAttribute('visible', 'true');
 
